@@ -1,0 +1,349 @@
+@media screen {
+    html { height: 100%; }
+    body { width: 1024px; height: 768px; }
+    .center { text-align: center }
+    .left { text-align: left; }
+    .alignright { text-align: right; }
+    .irrtool-em { font-weight: bold; font-size: 1.0em; }
+    /* remove blue outline border on active jquery tab */
+    .ui-widget * { outline: none; }
+
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+        text-align: center;
+        float: none;
+    }
+
+    .ui-tabs {
+        font-size: 0.6em;
+    }
+
+    H3 { text-align: center }
+
+/*
+    div {
+        overflow: hidden;
+    }
+*/
+
+    .input-no-border { border: none; }
+
+    table.fixed { table-layout:fixed; }
+
+    input[type="radio"] {
+        margin: 0 0.4em 0 2.0em
+    }
+/*
+    select {
+        height:1.2em;
+        line-height:1.2em;
+        background:#f4f4f4;
+    }
+*/
+    #csftool-content {
+        /*height: 450px;*/
+        /*width: 765px;*/
+        height: 460px;
+        width: 904px;
+        margin: 10px 0 0 0;
+        /*border-right: 3px solid #00bb00;*/
+        /*border-top: 3px solid #00bb00;*/
+        /*border-bottom: 3px solid #00bb00;*/
+        /*border: 3px solid black;*/
+        /*width:900px;*/
+        /*height:500px;*/
+    }
+
+    #csftool-input{
+        display: inline-block;
+        float:left;
+        height: 460px;
+        width: 180px;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        /*width:200px;*/
+        /*height:488px;*/
+    }
+
+    .user-input{
+        float:left;
+        width:180px;
+        height:450px;
+        /*height:270px;*/
+        /*height:200px;*/
+        margin: 0 auto;
+        padding: 0 5px 0 5px;
+        /*border:3px solid black;*/
+        border-right:3px solid #00bb00;
+        border-top:3px solid #00bb00;
+        border-left:3px solid #00bb00;
+        border-bottom:3px solid #00bb00;
+    }
+
+    .text-output{
+        float:left;
+        width:180px;
+        height:180px;
+        /*height:250px;*/
+        margin: 0 auto;
+        padding: 0 5px 0 5px;
+        /*border:3px solid black;*/
+        /*border-right:3px solid black;*/
+    }
+
+    .csftool-display-irrtool{
+        height: 450px;
+        width: 709px;
+        /*width: 570px;*/
+        margin: 0 0 0 0;
+        /*border: none;*/
+        border-top: 3px solid #00bb00;
+        border-right: 3px solid #00bb00;
+        border-bottom: 3px solid #00bb00;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .csftool-display{
+        float:left;
+        height: 435px;
+        width: 699px;
+        /*width: 560px;*/
+        margin: 0 0 0 0;
+        border: none;
+        text-align: center;
+        display: inline-block;
+    }
+
+    #chart-output-1{
+        height: 400px;
+        width: 679px;
+        /*width: 540px;*/
+        /*height: 85%;*/
+        /*width: 95%;*/
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    #chart-output-2{
+        height: 400px;
+        width: 679px;
+        /*width: 540px;*/
+        /*height: 85%;*/
+        /*width: 95%;*/
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    #chart-output-3{
+        height: 400px;
+        width: 679px;
+        /*width: 540px;*/
+        /*height: 85%;*/
+        /*width: 95%;*/
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    #chart-output-4{
+        height: 400px;
+        width: 679px;
+        /*width: 540px;*/
+        /*height: 85%;*/
+        /*width: 95%;*/
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    #chart-output-5{
+        height: 400px;
+        width: 679px;
+        /*width: 540px;*/
+        /*height: 85%;*/
+        /*width: 95%;*/
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    #text-output-1{
+        float:left;
+        width:180px;
+        height:175px;
+        /*height:200px;*/
+        margin: 0 auto;
+        padding: 0 5px 0 5px;
+        border:3px solid #00bb00;
+        /*border-right:3px solid black;*/
+        /*border-bottom:3px solid black;*/
+        /*border-left:3px solid black;*/
+    }
+
+    #text-output-2{
+        float:left;
+        width:180px;
+        height:175px;
+        /*height:200px;*/
+        margin: 0 auto;
+        padding: 0 5px 0 25px;
+        border:3px solid #00bb00;
+        /*border-right:3px solid black;*/
+        /*border-bottom:3px solid black;*/
+        /*border-left:3px solid black;*/
+        /*display: none;*/
+    }
+
+    #csftool-datepicker {
+        height: 1.2em;
+        line-height: 1.2em;
+        width: 8.0em;
+        font-size: 0.8em;
+        color: #000000;
+    }
+
+    #irrtool-planting-datepicker {
+        height: 1.2em;
+        line-height: 1.2em;
+        width: 8.0em;
+        font-size: 0.8em;
+        color: #000000;
+    }
+
+    #csftool-whereami {
+        font-size: 0;
+        margin: 0.4em 0 0 0;
+    }
+
+    #irrtool-soil-select {
+        font-size: 0.7em;
+        height:2.0em;
+        line-height:2.0em;
+        /*background-color: #f7f8fa;*/
+        border: 1px solid #00bb00;
+    }
+
+/*
+    #irrtool-irrigationlevel-select {
+        font-size: 0.7em;
+        height:2.0em;
+        line-height:2.0em;
+        border: 1px solid #00bb00;
+    }
+*/
+
+    #irrtool-crop-select {
+        font-size: 0.7em;
+        height:2.0em;
+        line-height:2.0em;
+        border: 1px solid #00bb00;
+    }
+
+    .change-location {
+        margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+
+    .irrtool-crop-type-info {
+        margin: 0 0 4px 8px;
+        font-size: 0.6em;
+    }
+
+    .change-date {
+        margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+
+    .ui-datepicker-trigger {
+        position: relative;
+        top: -35px;
+        right: -110px;
+        margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+
+/*
+    .ui-datepicker-trigger {
+        display: inline;
+        margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+*/
+
+    #csftool-date-selector {
+        width: 100%;
+        margin: 0 0 0 0;
+    }
+
+    #csftool-planting-date-selector {
+        width: 100%;
+        margin: 0 0 0 0;
+    }
+
+/*
+    #csftool-date-selector input[type="text"] {
+        font-size: 1em;
+        max-width: 16em;
+        padding 0 12px 0 3px;
+    }
+
+    #csftool-date-selector input[type="text"]:active,
+    #csftool-date-selector input[type="text"]:focus {
+        font-size: 1em;
+        background-color: #f7f8fa;
+        border: 1px solid #00bb00;
+    }
+*/
+/*
+    .ui-datepicker-trigger {
+        margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+*/
+    /*
+    .ui-datepicker-trigger {
+        display: inline;
+        padding: 0px;
+        padding-left:3px;
+        vertical-align:baseline;
+        position:relative;
+        /*margin: 0 0 0 8px;
+        font-size: 0.6em;
+    }
+    */
+
+    .csftool-location-text {
+        font-size: 0.8em;
+        line-height: 1.0em;
+    }
+
+    #csftool-location-message {
+        font-size: 0.6em;
+        color: red;
+    }
+
+    #irrtool-checkbox-label {
+        font-size: 0.8em;
+    }
+
+    #climate-change-placeholder {
+        font-style: italic;
+        font-size: 1.2em;
+        text-align: justify;
+        margin: 30px 0 0 20px;
+    }
+
+    #irrtool-csf-image {
+        margin: 50px 0 0 0;
+    }
+
+/*
+    #chartInTooltip {
+        float: right;
+    }
+*/
+
+    /*
+    #csftool-datepicker-widget {
+        display: inline;
+    }
+    */
+
+    }
