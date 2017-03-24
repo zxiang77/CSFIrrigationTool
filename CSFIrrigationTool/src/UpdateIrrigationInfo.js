@@ -40,7 +40,7 @@ export const ButtonGroupInstance = ()=>(
     </ButtonGroup>
 );
 
-class UpdateInfoTable extends Component{
+class UpdateInfoTable extends Component {
     constructor(props) {
         super(props);
         this.state = {startDate: moment()};
