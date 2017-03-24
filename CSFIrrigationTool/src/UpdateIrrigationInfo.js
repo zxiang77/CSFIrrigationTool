@@ -6,6 +6,8 @@ import moment from 'moment';
 import "react-datepicker/dist/react-datepicker.css";
 import {ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap'
 var DatePicker = require('react-datepicker');
+import 'flatpickr/dist/flatpickr.min.css'
+import Flatpickr from 'react-flatpickr'
 
 function createPercentageList() {
     var i;
@@ -64,10 +66,14 @@ class UpdateInfoTable extends Component {
                     <tr>
                         <th>Last Irrigation:</th>
                         <td>
-                            <DatePicker
-                                className="textcenter"
-                                selected={ this.state.startDate }
-                                onChange={ this.handleChange } />
+                            <Flatpickr
+                                       onChange={v => console.info(v)}
+                                       options={{dateFormat: 'd-m-Y',
+                                           enableTime:false}}/>
+                            {/*<DatePicker*/}
+                                {/*className="textcenter"*/}
+                                {/*selected={ this.state.startDate }*/}
+                                {/*onChange={ this.handleChange } />*/}
                         </td>{/* a select needed */}
                     </tr>
                     <tr>
