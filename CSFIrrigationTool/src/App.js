@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
+
     render() {
     return (
     <Router>
@@ -18,12 +19,12 @@ class App extends Component {
             {/*<div className="App">*/}
                 {/*<SelectLocation/>*/}
             {/*</div>*/}
-            <Route exact path="/" component={SelectLocation}></Route>
-            <Route path="/croptype" component={SelectCropType}></Route>
-            <Route path="/capacity" component={SelectCapacity}></Route>
-            <Route path="/lastirrigation" component={SelectLastIrrigation}></Route>
+            <Route exact path="/" component={StartPage} />
+            <Route path="/location" component={SelectLocation} />
+            <Route path="/croptype" component={SelectCropType} />
+            <Route path="/capacity" component={SelectCapacity} />
+            <Route path="/lastirrigation" component={SelectLastIrrigation} />
         </div>
-
     </Router>
 
     );

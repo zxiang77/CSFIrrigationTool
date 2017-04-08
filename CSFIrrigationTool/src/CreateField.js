@@ -6,15 +6,17 @@ import { ComfirmButton } from './CSFComponents';
 import Flatpickr from 'react-flatpickr'
 import { observable } from 'mobx'
 import { Link } from 'react-router-dom'
-// More about form in React; need to update later
-// https://facebook.github.io/react/docs/forms.html
+import back from '../img/back.png';
 
+// TODO: update by onChange event function
+
+// TODO: (optional)More about form in React; need to update later
+// https://facebook.github.io/react/docs/forms.html
 export const SelectLocation = ()=>(
     <div>
         <div className="Select-Header">
             <h2 className="Select-Header">Create a field - step 1</h2>
         </div>
-
         <div className="Select-Input">
             <h3>Where is your field?</h3>
             <input type="text" name="LocationInput" placeholder="Ithaca, NY" />
@@ -26,7 +28,7 @@ export const SelectLocation = ()=>(
 export const SelectCapacity = ()=>(
     <div>
         <div className="Select-Header">
-            <div className="prev"></div>
+            <Link to="/irrigation"><div className="prev"><img src={back} width="10px" /></div></Link>
             <h2 className="Select-Header">Create a field - step 2</h2>
         </div>
 
@@ -48,7 +50,7 @@ export const SelectCapacity = ()=>(
 export const SelectCropType = ()=>(
     <div>
         <div className="Select-Header">
-            <div className="prev"></div>
+            <Link to="/capacity"><div className="prev"><img src={back} width="10px" /></div></Link>
             <h2 className="Select-Header">Create a field - step 3</h2>
         </div>
 
@@ -73,7 +75,7 @@ export const SelectCropType = ()=>(
 export const SelectLastIrrigation = ()=>(
     <div>
         <div className="Select-Header">
-            <div className="prev"></div>
+            <Link to="/croptype"><div className="prev"><img src={back} width="10px" /></div></Link>
             <h2 className="Select-Header">Create a field - step 4</h2>
         </div>
 
