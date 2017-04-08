@@ -6,6 +6,13 @@ import moment from 'moment';
 import "react-datepicker/dist/react-datepicker.css";
 import {ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap'
 
+/**
+ * TODO:
+ * 1. finish global state connection
+ * 2. finish display page
+ * 3. finish router
+ */
+
 export const DisplayStatus = ()=>
     //Display date + water deficit status
     <div>
