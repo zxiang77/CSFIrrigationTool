@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import "react-datepicker/dist/react-datepicker.css";
 import {ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap'
-
+import "App.css";
 /**
  * TODO:
  * 1. finish global state connection

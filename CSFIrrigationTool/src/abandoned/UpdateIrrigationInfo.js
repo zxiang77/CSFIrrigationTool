@@ -8,6 +8,7 @@ import {ButtonGroup, Button, DropdownButton, MenuItem } from 'react-bootstrap'
 var DatePicker = require('react-datepicker');
 import 'flatpickr/dist/flatpickr.min.css'
 import Flatpickr from 'react-flatpickr'
+import "App.css"
 
 function createPercentageList() {
     var i;
