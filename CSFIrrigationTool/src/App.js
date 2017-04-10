@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { UpdateInfo } from "./UpdateIrrigationInfo"
+// import { UpdateInfo } from "./UpdateIrrigationInfo"
 import { StartPage } from './StartPage'
 import { SelectLocation, SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField'
 import {

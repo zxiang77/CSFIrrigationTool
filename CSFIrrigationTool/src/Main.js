@@ -4,7 +4,7 @@
 
 import React, { Component } from 'react';
 import { ComfirmButton } from './CSFComponents';
-import "App.css";
+import "./App.css";
 const DisplayProfile = (props)=>(
     <div>
 

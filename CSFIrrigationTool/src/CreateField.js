@@ -7,7 +7,7 @@ import Flatpickr from 'react-flatpickr'
 import { observable } from 'mobx'
 import { Link } from 'react-router-dom'
 import back from '../img/back.png';
-import "App.css";
+import "./App.css";
 // TODO: update by onChange event function
 
 // TODO: (optional)More about form in React; need to update later
