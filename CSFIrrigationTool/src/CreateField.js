@@ -8,6 +8,8 @@ import { observable } from 'mobx'
 import { Link } from 'react-router-dom'
 import back from '../img/back.png';
 import "./App.css";
+import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
+
 // TODO: update by onChange event function
 
 // TODO: (optional)More about form in React; need to update later
@@ -28,7 +30,10 @@ export const SelectLocation = ()=>(
 export const SelectCapacity = ()=>(
     <div>
         <div className="Select-Header">
-            <Link to="/irrigation"><div className="prev"><img src={back} width="10px" /></div></Link>
+            <Link to="/location"><div className="prev">
+                <MdNavigateBefore width="30px" />
+                {/*<img src={back} width="10px" />*/}
+            </div></Link>
             <h2 className="Select-Header">Create a field - step 2</h2>
         </div>
 
@@ -50,7 +55,7 @@ export const SelectCapacity = ()=>(
 export const SelectCropType = ()=>(
     <div>
         <div className="Select-Header">
-            <Link to="/capacity"><div className="prev"><img src={back} width="10px" /></div></Link>
+            <Link to="/capacity"><div className="prev"><MdNavigateBefore /></div></Link>
             <h2 className="Select-Header">Create a field - step 3</h2>
         </div>
 
@@ -75,7 +80,10 @@ export const SelectCropType = ()=>(
 export const SelectLastIrrigation = ()=>(
     <div>
         <div className="Select-Header">
-            <Link to="/croptype"><div className="prev"><img src={back} width="10px" /></div></Link>
+            <Link to="/croptype"><div className="prev">
+                {/*<img src={back} width="10px" />*/}
+                <MdNavigateBefore />
+            </div></Link>
             <h2 className="Select-Header">Create a field - step 4</h2>
         </div>
 
