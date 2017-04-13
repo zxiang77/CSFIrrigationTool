@@ -48,13 +48,17 @@ th td {
     margin: auto;
 }
 
-ul {
-    overflow: scroll;
-    height: 300px;
-}
+/*ul {*/
+    /*overflow: scroll;*/
+    /*height: 300px;*/
+/*}*/
 
 #primaryButton {
     background-color: rgb(28, 197, 67);
     color: white;
     margin-top: 10em;
+}
+
+.Select-Header {
+    display: inline-flex;
 }
