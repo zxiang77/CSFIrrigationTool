@@ -12,7 +12,7 @@ import "./App.css";
 // @observer
 export const StartPage = (props)=>(
     <div>
-        <h2>Welcome to CSF Wate Deficit Calculator!</h2>
+        <h2 id="id1" >Welcome to CSF Wate Deficit Calculator!</h2>
         <img src={logo} width="80%" />
         <Link to="/location"> <ComfirmButton content="Start Creating a Field"/> </Link>
     </div>
