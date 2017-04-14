@@ -8,53 +8,79 @@ import "./App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before';
 import MdSort from 'react-icons/lib/md/sort';
 import MdSetting from 'react-icons/lib/md/settings';
+import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
+import MdWbSunny from 'react-icons/lib/md/wb-sunny';
+
 // import { VictoryLine, VictoryBrushContainer } from 'victory';
-import { LineMarkSeries } from 'react-vis';
-
-const ProfileBackground = ()=>(
-    <div>
-
-    </div>
-)
+import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries } from 'react-vis';
 
 const DisplayProfile = (props)=>(
     <div id="profile">
-        {/*<LineMarkSeries*/}
-            {/*/>*/}
-        {/*<VictoryLine*/}
-             {/*containerComponent={*/}
-                 {/*<VictoryBrushContainer*/}
-                     {/*selectedDomain={*/}
-                         {/*[{x: [-0.25, 3.25], y: [-3, -1]}, {x: [-0.25, 3.25], y: [-1, 1]}]*/}
-                     {/*}*/}
-                     {/*dimension="y"*/}
-                     {/*selectionStyle={{fill: "teal", opacity: 0.2}}*/}
-                 {/*/>*/}
-                 {/*}*/}
-            {/*style={{*/}
-                {/*data: {stroke: "teal"}*/}
-            {/*}}*/}
-            {/*data={[*/}
-                {/*{x: 1, y: -2},*/}
-                {/*{x: 2, y: 5},*/}
-                {/*{x: 3, y: -3}*/}
-            {/*]}*/}
-        {/*/>*/}
+
+        <XYPlot
+            width={300}
+            height={300}>
+            <HorizontalGridLines />
+            <LineSeries
+                color="black"
+                data={[
+                    {x: 1, y:0},
+                    {x: 2, y:-0.1}
+                ]}
+                strokestyle="solid"
+            />
+            <LineSeries
+                color="black"
+                data={[
+                    {x: 2, y:-0.1},
+                    {x: 3, y:-0.15}
+                ]}
+                strokestyle="solid"
+            />
+            <MarkSeries
+                color="red"
+                data={[
+                    {x: 1, y:0},
+                    {x: 2, y:-0.1},
+                    {x: 3, y:-0.15}
+                ]}
+            />
+            <YAxis />
+        </XYPlot>
     </div>
 );
 
 const DisplayWeather = (props)=>(
     <div id="weather">
-        <table>
+        <table className="">
             <tbody>
                 <tr>
-                    <td></td>
+                    <td>Today</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+
                 </tr>
                 <tr>
-                    <td></td>
+                    <td><MdCloudQueue /></td>
+                    <td><MdWbSunny /></td>
+                    <td><MdWbSunny /></td>
+                    <td><MdWbSunny /></td>
+                    <td><MdCloudQueue /></td>
+                    <td><MdCloudQueue /></td>
+                    <td><MdCloudQueue /></td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>30%</td>
+                    <td>80%</td>
+                    <td>30%</td>
+                    <td>10%</td>
+                    <td>30%</td>
+                    <td>20%</td>
+                    <td>30%</td>
                 </tr>
             </tbody>
         </table>
