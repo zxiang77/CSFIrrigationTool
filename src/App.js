@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 // import { UpdateInfo } from "./UpdateIrrigationInfo"
 import { StartPage } from './StartPage';
-import { SelectLocation, SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField';
+import { SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField';
+import SelectLocation from './CreateField';
 import MainPage from './Main';
 
 import {
@@ -24,26 +25,25 @@ class App extends Component {
         //
         // );
 
-        // console.log(MainPage);
         // console.log(StartPage);
         // console.log(MainPg)
         // const MainPg =  MainPage;
-    return (
-    <Router>
-        <div>
-            <div className="App">
-                {/*<MainPage/>*/}
+        return (
+        <Router>
+            <div>
+                <div className="App">
+                    {/*<MainPage/>*/}
+                </div>
+                <Route exact path="/" component={StartPage} />
+                <Route path="/location" component={SelectLocation} />
+                <Route path="/croptype" component={SelectCropType} />
+                <Route path="/capacity" component={SelectCapacity} />
+                <Route path="/lastirrigation" component={SelectLastIrrigation} />
+                <Route path="/main" component={MainPage} />
             </div>
-            <Route exact path="/" component={StartPage} />
-            <Route path="/location" component={SelectLocation} />
-            <Route path="/croptype" component={SelectCropType} />
-            <Route path="/capacity" component={SelectCapacity} />
-            <Route path="/lastirrigation" component={SelectLastIrrigation} />
-            <Route path="/main" component={MainPage} />
-        </div>
-    </Router>
+        </Router>
 
-    );
+        );
     }
 }
 

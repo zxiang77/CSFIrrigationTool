@@ -12,41 +12,11 @@ import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
 import MdWbSunny from 'react-icons/lib/md/wb-sunny';
 
 // import { VictoryLine, VictoryBrushContainer } from 'victory';
-import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries } from 'react-vis';
-
+// import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries, VerticalGridLines } from 'react-vis';
+import ProfilePlot from './ProfilePlot'
 const DisplayProfile = (props)=>(
     <div id="profile">
-
-        <XYPlot
-            width={300}
-            height={300}>
-            <HorizontalGridLines />
-            <LineSeries
-                color="black"
-                data={[
-                    {x: 1, y:0},
-                    {x: 2, y:-0.1}
-                ]}
-                strokestyle="solid"
-            />
-            <LineSeries
-                color="black"
-                data={[
-                    {x: 2, y:-0.1},
-                    {x: 3, y:-0.15}
-                ]}
-                strokestyle="solid"
-            />
-            <MarkSeries
-                color="red"
-                data={[
-                    {x: 1, y:0},
-                    {x: 2, y:-0.1},
-                    {x: 3, y:-0.15}
-                ]}
-            />
-            <YAxis />
-        </XYPlot>
+        <ProfilePlot />
     </div>
 );
 

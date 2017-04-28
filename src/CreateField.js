@@ -9,23 +9,117 @@ import { Link } from 'react-router-dom'
 import back from '../img/back.png';
 import "./App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
+import jsonp from 'jsonp'
+// import { getDataForLocation, getClimDataForLocation } from '../irrigationtool/js/toolinit'
 
 // TODO: update by onChange event function
 
 // TODO: (optional)More about form in React; need to update later
 // https://facebook.github.io/react/docs/forms.html
-export const SelectLocation = ()=>(
-    <div id="div1">
-        <div className="Select-Header">
-            <h2 id = "id2" className="Select-Header">Create a field - step 1</h2>
-        </div>
-        <div className="Select-Input">
-            <h3 id="id3">Where is your field?</h3>
-            <input id = "input1" type="text" name="LocationInput" placeholder="Ithaca, NY" />
-        </div>
-        <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
-    </div>
-)
+
+
+
+export default class SelectLocation extends Component {
+    constructor() {
+        super();
+        this.state = {
+            coords : null,
+            timestamp : null,
+            longitude : null,
+            latitude : null,
+            countryName : null,
+            regionName: null,
+            city : null,
+            zipCode : null,
+            HDF5 : null
+        }
+        // var watchID = (null: ?number);
+    }
+
+    
+
+    componentDidMount = () => {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                this.setState({coords : position,
+                               longitude : position.coords.longitude,
+                               latitude : position.coords.latitude});
+
+            },
+            (error) => console.log(error.message),
+            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+        );
+        this.watchID = navigator.geolocation.watchPosition((position) => {
+            // var lastPosition = JSON.stringify(position);
+            this.setState(position);
+        });
+
+        // get location related state param
+        var url = 'https://freegeoip.net/json/';
+        fetch(url)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                //console.log(responseJson);
+                this.setState({
+                    countryName: responseJson.country_name,
+                    regionName: responseJson.region_name,
+                    city : responseJson.city,
+                    zipCode : responseJson.zip_code
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        // http://tools.climatesmartfarming.org/irrigationtool/clim/?callback=jQuery1124006531113705645974_1493253074520&lat=43.217628&lon=-77.550749&format=json&_=1493253074521
+
+        jsonp('http://tools.climatesmartfarming.org/irrigationtool/datahdf5/', {
+            lat : this.state.latitude.toString(),
+            lon : this.state.longitude.toString(),
+            format : 'json'
+        }, (err, data)=> {
+            if (err) console.error(err);
+            else {
+                console.log(data);
+                this.setState(data);
+            }
+        })
+
+        jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
+            lat : this.state.latitude,
+            lon : this.state.longitude,
+            format : 'json'
+        }, (err, data)=> {
+            if (err) console.error(err);
+            else {
+                console.log(data);
+                this.setState(data);
+            }
+        })
+
+    }
+    componentWillUnmount = () => {
+        navigator.geolocation.clearWatch(this.watchID);
+    }
+
+    render () {
+        return (
+            <div id="div1">
+                <div className="Select-Header">
+                    <h2 id = "id2" className="Select-Header">Create a field - step 1</h2>
+                </div>
+                <div className="Select-Input">
+                    <h3 id="id3">Where is your field?</h3>
+                    <input id = "input1" type="text" name="LocationInput" placeholder={ this.state.longitude } />
+                </div>
+                <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
+            </div>
+        )
+    }
+}
+
+// export const SelectLocation = ()=>(
+//
+// )
 
 export const SelectCapacity = ()=>(
     <div id="div2">
