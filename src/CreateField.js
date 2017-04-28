@@ -14,14 +14,14 @@ import jsonp from 'jsonp'
 
 // TODO: update by onChange event function
 
-// TODO: (optional)More about form in React; need to update later
+// TODO: adding redux, Call API after @longitude and @latitude are set
 // https://facebook.github.io/react/docs/forms.html
 
 
 
 export default class SelectLocation extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             coords : null,
             timestamp : null,
@@ -36,14 +36,42 @@ export default class SelectLocation extends Component {
         // var watchID = (null: ?number);
     }
 
-    
 
-    componentDidMount = () => {
-        navigator.geolocation.getCurrentPosition(
+    async getData() {
+        await navigator.geolocation.getCurrentPosition(
             (position) => {
                 this.setState({coords : position,
-                               longitude : position.coords.longitude,
-                               latitude : position.coords.latitude});
+                    longitude : position.coords.longitude,
+                    latitude : position.coords.latitude});
+
+                // ERROR : API is not receiving param passed and returns a default response
+                jsonp('http://tools.climatesmartfarming.org/irrigationtool/datahdf5/', {
+                    lat : this.state.latitude.toString(),
+                    lon : this.state.longitude.toString(),
+                    year : '2017',
+                    format : 'json'
+                }, (err, data)=> {
+                    if (err) console.error(err);
+                    else {
+                        console.log(data);
+                        console.log(err);
+                        this.setState({HDF : data});
+                    }
+                })
+
+                jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
+                    lat : this.state.latitude.toString(),
+                    lon : this.state.longitude.toString(),
+                    format : 'json'
+                }, (err, data)=> {
+                    if (err) console.error(err);
+                    else {
+                        console.log(data);
+                        console.log(err);
+                        this.setState(data);
+                    }
+                })
+
 
             },
             (error) => console.log(error.message),
@@ -70,31 +98,15 @@ export default class SelectLocation extends Component {
             .catch((error) => {
                 console.error(error);
             });
+    }
+
+    componentDidMount = () => {
+
+        this.getData();
+
         // http://tools.climatesmartfarming.org/irrigationtool/clim/?callback=jQuery1124006531113705645974_1493253074520&lat=43.217628&lon=-77.550749&format=json&_=1493253074521
 
-        jsonp('http://tools.climatesmartfarming.org/irrigationtool/datahdf5/', {
-            lat : this.state.latitude.toString(),
-            lon : this.state.longitude.toString(),
-            format : 'json'
-        }, (err, data)=> {
-            if (err) console.error(err);
-            else {
-                console.log(data);
-                this.setState(data);
-            }
-        })
 
-        jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
-            lat : this.state.latitude,
-            lon : this.state.longitude,
-            format : 'json'
-        }, (err, data)=> {
-            if (err) console.error(err);
-            else {
-                console.log(data);
-                this.setState(data);
-            }
-        })
 
     }
     componentWillUnmount = () => {
@@ -109,7 +121,7 @@ export default class SelectLocation extends Component {
                 </div>
                 <div className="Select-Input">
                     <h3 id="id3">Where is your field?</h3>
-                    <input id = "input1" type="text" name="LocationInput" placeholder={ this.state.longitude } />
+                    <input id = "input1" type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
                 <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
             </div>

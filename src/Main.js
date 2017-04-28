@@ -16,7 +16,7 @@ import MdWbSunny from 'react-icons/lib/md/wb-sunny';
 import ProfilePlot from './ProfilePlot'
 const DisplayProfile = (props)=>(
     <div id="profile">
-        <ProfilePlot />
+        {/*<ProfilePlot />*/}
     </div>
 );
 
