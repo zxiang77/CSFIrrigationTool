@@ -56,15 +56,15 @@ export default class ProfilePlot extends React.Component {
         return (
             <Chart>
                 <LineChart
-                    data= {this.state.generalChartData}
-                    chartSeries= {this.state.chartSeries}
-                    x= {this.state.x}
-                    xDomain= {this.state.xDomain}
-                    xLabel = {this.state.xLabel}
-                    y= {this.state.y}
-                    yDomain= {this.state.yDomain}
-                    yLabel = {this.state.yLabel}
-                    yLabelPosition = {this.state.yLabelPosition}
+                    data={this.state.generalChartData}
+                    chartSeries={this.state.chartSeries}
+                    x={this.state.x}
+                    xDomain={this.state.xDomain}
+                    xLabel={this.state.xLabel}
+                    y={this.state.y}
+                    yDomain={this.state.yDomain}
+                    yLabel ={this.state.yLabel}
+                    yLabelPosition={this.state.yLabelPosition}
                 />
             </Chart>
         );

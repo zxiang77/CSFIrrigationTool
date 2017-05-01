@@ -1,0 +1,9 @@
+{
+  "profiles" : [
+    {"location" : null, // object
+    "lastIrrigation": null, // string
+    "cropType" : null,
+    "soilType" : null
+    }
+  ]
+}

@@ -3,13 +3,16 @@
  */
 import React, { Component } from 'react';
 import { ComfirmButton } from './CSFComponents';
-import Flatpickr from 'react-flatpickr'
-import { observable } from 'mobx'
+import Flatpickr from 'react-flatpickr';
+import 'flatpickr/dist/flatpickr.min.css'
+// import { observable } from 'mobx'
 import { Link } from 'react-router-dom'
-import back from '../img/back.png';
+// import back from '../img/back.png';
 import "./App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
 import jsonp from 'jsonp'
+import { createStore, applyMiddleware } from 'redux'
+
 // import { getDataForLocation, getClimDataForLocation } from '../irrigationtool/js/toolinit'
 
 // TODO: update by onChange event function
@@ -22,7 +25,7 @@ import jsonp from 'jsonp'
 export default class SelectLocation extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state={
             coords : null,
             timestamp : null,
             longitude : null,
@@ -31,15 +34,15 @@ export default class SelectLocation extends Component {
             regionName: null,
             city : null,
             zipCode : null,
-            HDF5 : null
+            HDF5 : null,
+            clim : null
         }
-        // var watchID = (null: ?number);
     }
-
 
     async getData() {
         await navigator.geolocation.getCurrentPosition(
             (position) => {
+                console.log(position)
                 this.setState({coords : position,
                     longitude : position.coords.longitude,
                     latitude : position.coords.latitude});
@@ -54,21 +57,21 @@ export default class SelectLocation extends Component {
                     if (err) console.error(err);
                     else {
                         console.log(data);
-                        console.log(err);
                         this.setState({HDF : data});
                     }
                 })
 
                 jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
-                    lat : this.state.latitude.toString(),
-                    lon : this.state.longitude.toString(),
-                    format : 'json'
+                        data : {
+                            lat: this.state.latitude.toString(),
+                            lon: this.state.longitude.toString(),
+                            format: 'json'
+                        }
                 }, (err, data)=> {
                     if (err) console.error(err);
                     else {
                         console.log(data);
-                        console.log(err);
-                        this.setState(data);
+                        this.setState({clim : data});
                     }
                 })
 
@@ -101,13 +104,7 @@ export default class SelectLocation extends Component {
     }
 
     componentDidMount = () => {
-
         this.getData();
-
-        // http://tools.climatesmartfarming.org/irrigationtool/clim/?callback=jQuery1124006531113705645974_1493253074520&lat=43.217628&lon=-77.550749&format=json&_=1493253074521
-
-
-
     }
     componentWillUnmount = () => {
         navigator.geolocation.clearWatch(this.watchID);
@@ -117,11 +114,11 @@ export default class SelectLocation extends Component {
         return (
             <div id="div1">
                 <div className="Select-Header">
-                    <h2 id = "id2" className="Select-Header">Create a field - step 1</h2>
+                    <h2 id="id2" className="Select-Header">Create a field - step 1</h2>
                 </div>
                 <div className="Select-Input">
                     <h3 id="id3">Where is your field?</h3>
-                    <input id = "input1" type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
+                    <input id="input1" type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
                 <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
             </div>
@@ -140,7 +137,7 @@ export const SelectCapacity = ()=>(
                 <MdNavigateBefore width="30px" />
                 {/*<img src={back} width="10px" />*/}
             </div></Link>
-            <h2 id = "id4" className="Select-Header">Create a field - step 2</h2>
+            <h2 id="id4" className="Select-Header">Create a field - step 2</h2>
         </div>
 
         <div className="Select-Input">
@@ -167,7 +164,7 @@ export const SelectCropType = ()=>(
 
         <div className="Select-Input">
             <h3 id="id6">What is your crop?</h3>
-            <form id = "form2">
+            <form id="form2">
                 <input type="radio" name="Crop" value="1" /> Grass <br/>
                 <input type="radio" name="Crop" value="2" /> Cereals <br/>
                 <input type="radio" name="Crop" value="3" /> Forages <br/>
@@ -187,20 +184,16 @@ export const SelectLastIrrigation = ()=>(
     <div>
         <div className="Select-Header">
             <Link to="/croptype"><div className="prev">
-                {/*<img src={back} width="10px" />*/}
                 <MdNavigateBefore />
             </div></Link>
             <h2 id="id7" className="Select-Header">Create a field - step 4</h2>
         </div>
 
         <div className="Select-Input">
-            <h3 id="id8">What was your last irrigation?</h3>
-             <form id="form3">
-                <Flatpickr
-                    name="time"
-                    onChange={v => console.info(v)}
-                    options={{dateFormat: 'd-m-Y',
-                        enableTime:false}}/>
+            <h3>What was your last irrigation?</h3>
+             <form>
+                 <Flatpickr data-enable-time
+                            onChange={v => console.info(v)} />
             </form>
 
         </div>
