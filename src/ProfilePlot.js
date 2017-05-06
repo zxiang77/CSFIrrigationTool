@@ -22,51 +22,73 @@
 // THE SOFTWARE.
 
 import React from 'react';
-import d3 from 'd3';
-import { Chart } from 'react-d3-core';
-import { LineChart } from 'react-d3-basic';
+// import * as d3 from 'd3';
+// import { Chart } from 'react-d3-core';
+// import { LineChart } from 'react-d3-basic';
 
 export default class ProfilePlot extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            generalChartData : [
-                {deficit : .2, date : 1},
-                {deficit : .3, date : 2},
-                {deficit : .1, date : 3}
-            ],
-            chartSeries : {
-                field : 'deficit',
-                name : 'Deficit',
-                color: '#ff7f0e'
-            },
-            x : (d) => d.index,
-            xDomain : d3.extent(this.state.generalChartData, this.state.x),
-            xLabel : "Index",
-            y : (d) => d,
-            yDomain : d3.extent(this.state.generalChartData, (d) => {return d.deficit;}),
-            yLabel : "Deficit",
-            yLabelPosition : 'right'
-
-        }
     }
 
     render() {
-        return (
-            <Chart>
-                <LineChart
-                    data={this.state.generalChartData}
-                    chartSeries={this.state.chartSeries}
-                    x={this.state.x}
-                    xDomain={this.state.xDomain}
-                    xLabel={this.state.xLabel}
-                    y={this.state.y}
-                    yDomain={this.state.yDomain}
-                    yLabel ={this.state.yLabel}
-                    yLabelPosition={this.state.yLabelPosition}
-                />
-            </Chart>
-        );
+        console.log("ss");
+        return (<div></div>)
     }
+
 }
+
+/** react-d3 is no longer under any maintenance (last update about 1-2 years ago),
+ * all the examples are written in jsx, instead of ES
+ *
+ * potential data visualization packages such as d3-vis don't have enough documentation
+ * so data visualization part will be halted for the moment
+ *  so our project will not use react
+ */
+// export default class ProfilePlot extends React.Component {
+//     constructor(props) {
+//         super(props);
+//
+//         this.state = {
+//             generalChartData : [
+//                 {deficit : .2, date : 1},
+//                 {deficit : .3, date : 2},
+//                 {deficit : .1, date : 3}
+//             ],
+//             chartSeries : {
+//                 field : 'deficit',
+//                 name : 'Deficit',
+//                 color: '#ff7f0e'
+//             },
+//             x : (d) => d.index,
+//             // xDomain : d3.extent(this.state.generalChartData, this.x),
+//             xLabel : "Index",
+//             y : (d) => d,
+//             // yDomain : d3.extent(this.state.generalChartData, (d) => {return d.deficit;}),
+//             yLabel : "Deficit",
+//             yLabelPosition : 'right'
+//
+//         }
+//     }
+//
+//     render() {
+//         console.log("gg");
+//         var xDomain = d3.extent(this.state.generalChartData, this.state.x);
+//         var yDomain = d3.extent(this.state.generalChartData, (d) => {return d.deficit;});
+//         return (
+//             <Chart>
+//                 <LineChart
+//                     data={this.state.generalChartData}
+//                     chartSeries={this.state.chartSeries}
+//                     x={this.state.x}
+//                     xDomain={xDomain}
+//                     xLabel={this.state.xLabel}
+//                     y={this.state.y}
+//                     yDomain={yDomain}
+//                     yLabel ={this.state.yLabel}
+//                     yLabelPosition={this.state.yLabelPosition}
+//                 />
+//             </Chart>
+//         );
+//     }
+// }

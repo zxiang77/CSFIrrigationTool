@@ -16,6 +16,10 @@ const lastIrrigation = (state, action) => {
 }
 
 const changeSetting = (state, action) => {
+    /**
+     * action = {type : ACTION_TYPE, updateIrrigation : null/data, updateSoilType : null/data}
+     *
+     */
     switch (action.type) {
         case types.EDIT_LOCATION:
             return {
@@ -32,3 +36,8 @@ const changeSetting = (state, action) => {
             return state
     }
 }
+
+// export const EDIT_LOCATION = 'EDIT_LOCATION'
+// export const EDIT_LAST_IRRIGATION = 'EDIT_LAST_IRRIGATION'
+// export const EDIT_SOIL_TYPE = 'EDIT_SOIL_TYPE'
+// export const EDIT_PROFILES = 'EDIT_PROFILES'

@@ -11,6 +11,7 @@ import MdSetting from 'react-icons/lib/md/settings';
 import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
 import MdWbSunny from 'react-icons/lib/md/wb-sunny';
 
+
 // import { VictoryLine, VictoryBrushContainer } from 'victory';
 // import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries, VerticalGridLines } from 'react-vis';
 import ProfilePlot from './ProfilePlot'
@@ -77,6 +78,7 @@ export class MainPage extends Component {
                 <ul>
                     <li>
                         <p>Future 3 days</p>
+                        <ProfilePlot />
                         <DisplayProfile />
                     </li>
                     <li>
