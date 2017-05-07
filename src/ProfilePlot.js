@@ -49,7 +49,7 @@ export default class ProfilePlot extends React.Component {
     }
 
     renderSVG() {
-                var height = 236
+        var height = 236
         var width = 335
         var dataset = [0.1, -0.2, -0.7];
         var yScale = d3.scaleLinear().domain([-1.5, 0.5]).range([height, 0]);
@@ -254,9 +254,6 @@ var defs = svg.append("defs");
                       .attr("stroke-width", 3)
                       .attr("stroke", "url(#svgGradient)")
                       .attr("fill", "none");
-
-
-
     }
 
     render() {
