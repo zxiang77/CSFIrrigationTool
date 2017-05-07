@@ -68,25 +68,31 @@ export class MainPage extends Component {
     render() {
         return (
             <div>
-                <div className="Select-Header">
+                <div>
                     {/* Put a Hamburger Icon here */}
                     <div className="Hamburger"> <MdSort /> </div>
-                    <div id="displayLocation" className="Location">Ithaca, NY</div>
+                    <div className="location">Ithaca, NY</div>
                     {/* Put a Setting Icon here */}
                     <div className="Setting"> <MdSetting /> </div>
                 </div>
                 <ul>
                     <li>
-                        <p>Future 3 days</p>
+                        <p id = "futureDays">Future 3 days</p>
+                        <div id = "date1"> May 8 </div> 
+                        <div id = "date2"> May 9 </div> 
+                        <div id = "date3"> May 10 </div>
+                        <div id = "line"> </div> 
+                        <div id = "line2"> </div> 
+    
                         <ProfilePlot />
                         <DisplayProfile />
                     </li>
                     <li>
-                        <p>Weather Forcast</p>
+                        <p className = "displace">Weather Forcast</p>
                         <DisplayWeather />
                     </li>
                     <li>
-                        <p>Since last irrigation</p>
+                        <p className = "displace"> Since last irrigation</p>
                         <SinceLastIrrigate />
                     </li>
                 </ul>
