@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { ComfirmButton } from './CSFComponents';
 import { inject, observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import logo from '../irrigationtool/images/csf-logo-darker.png';
+import logo from '../irrigationtool/images/logo.png';
 import "./App.css";
 
 // @inject("store")

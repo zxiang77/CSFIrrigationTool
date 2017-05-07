@@ -2,6 +2,13 @@
     text-align: center;
 }
 
+body {
+
+    font-family:Open Sans;
+    color:#343434;
+    font-weight: 100;
+}
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
@@ -29,91 +36,16 @@
     padding-bottom: 3em;
     /*text-align: center;*/
 }
-/* StartPage*/
-/*Welcome to CSF Wate Deficit Calculator!*/
-#id1 {
-    margin-top: 50px;
+
+#welcomePage {
+    margin-top: 20%;
     text-align: center;
+    font-size: 30px;
     margin-bottom: 30px;
 }
-
-/*CreateField.js*/
-/*CreateField div*/
-#div1 {
-    margin-top: 50px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/*Create a field - step 1*/
-#id2 {
-    margin-bottom: 50px;
-}
-
-/*"Ithaca, NY"*/
-#input1 {
-    margin-bottom: 250px;
-}
-
-/*Create a field - step 2*/
-#id4 {
-    margin-top: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-/*Where is the soil water capacity of your field?*/
-#id5 {
-    margin-top: auto;
-    text-align: center;
-    margin-left: 30px;
-    margin-bottom: 30px;
-}
-
-/*water capacity options*/
-#form1 {
-    margin-left: 170px;
-    font-size: 20px;
-    margin-bottom: 140px;
-}
-
-/*Create a fild - step 3*/
-#div3 {
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 30px;
-    margin-bottom: 30px;
-}
-
-/*What is your crop*/
-#id6 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/*crop options*/
-#form2 {
-    margin-left: 190px;
-    font-size: 20px;
-    margin-bottom: 80px;
-}
-
-/*Create a field - step 4*/
-#id7 {
-    margin-top: 30px;
-    text-align: center;
-    margin-bottom: 90px;
-}
-
-/*What was your last irrigation?*/
-#id8 {
-    text-align: center;
-}
-
-/*mm/dd/yyyy*/
-#form3 {
-    margin-left: 130px;
-    font-size: 15px;
-    margin-bottom: 210px;
+#welcome {
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 table, tbody{
@@ -137,31 +69,54 @@ th td {
     margin: auto;
 }
 
-/*ul {*/
-    /*overflow: scroll;*/
-    /*height: 300px;*/
-/*}*/
 
 .Select-Header {
-    display: inline-flex;
+    position: fixed;
+    top:0;
+    left: 50%;
+    margin-left: -25.5%;
+    color:gray;
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: 100;
 }
+
+.Select-Input {
+        margin-left: 10%;
+        margin-right: 5%;
+        margin-top: 30%;
+        font-size: 20px;
+/*        background-color: none;
+        border: 2px solid;*/
+
+}
+.prev {
+    position: fixed;
+    top:1%;
+    left: 10%;
+    margin-left: -5%;
+    color:gray;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
 
 #primaryButton {
     background-color: rgb(28, 197, 67);
+    position: fixed;
+    bottom: 0;
     color: white;
-    width: 40%;
+    width: 100%;
     margin-top: 500px;
     margin: auto;
-
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
 }
 
 #image1{
     text-align: center;
-    margin-left: 130px;
-    /*    margin-right: auto;
-        margin-left: auto; */
-    margin-bottom: 180px;
-    height: 55%;
-    width: 55%;
-
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
 }

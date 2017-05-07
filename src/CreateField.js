@@ -114,11 +114,11 @@ export default class SelectLocation extends Component {
         return (
             <div id="div1">
                 <div className="Select-Header">
-                    <h2 id="id2" className="Select-Header">Create a field - step 1</h2>
+                    <h2 className="Select-Header">Create a field - step 1</h2>
                 </div>
                 <div className="Select-Input">
                     <h3 id="id3">Where is your field?</h3>
-                    <input id="input1" type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
+                    <input type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
                 <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
             </div>
@@ -132,20 +132,20 @@ export default class SelectLocation extends Component {
 
 export const SelectCapacity = ()=>(
     <div id="div2">
-        <div className="Select-Header">
+        <div >
             <Link to="/location"><div className="prev">
                 <MdNavigateBefore width="30px" />
                 {/*<img src={back} width="10px" />*/}
             </div></Link>
-            <h2 id="id4" className="Select-Header">Create a field - step 2</h2>
+            <h2 className="Select-Header">Create a field - step 2</h2>
         </div>
 
         <div className="Select-Input">
-            <h3 id="id5">What is the soil water capacity of your field?</h3>
+            <h3>What is the soil water capacity of your field?</h3>
             <form id="form1">
-                <input type="radio" name="Location" value="3" /> High (Clay) <br/><br/>
-                <input type="radio" name="Location" value="2" /> Medium (Loam) <br/><br/>
-                <input type="radio" name="Location" value="1" /> Sand (Sand)
+                <input type="checkbox" name="Location" value="3" /> High (Clay) <br/><br/>
+                <input type="checkbox" name="Location" value="2" /> Medium (Loam) <br/><br/>
+                <input type="checkbox" name="Location" value="1" /> Sand (Sand)
             </form>
 
         </div>
@@ -156,8 +156,8 @@ export const SelectCapacity = ()=>(
 )
 
 export const SelectCropType = ()=>(
-    <div id="div3" className="Select-Header">
-        <div className="Select-Header">
+    <div>
+        <div>
             <Link to="/capacity"><div className="prev"><MdNavigateBefore /></div></Link>
             <h2 className="Select-Header">Create a field - step 3</h2>
         </div>
@@ -165,13 +165,13 @@ export const SelectCropType = ()=>(
         <div className="Select-Input">
             <h3 id="id6">What is your crop?</h3>
             <form id="form2">
-                <input type="radio" name="Crop" value="1" /> Grass <br/>
-                <input type="radio" name="Crop" value="2" /> Cereals <br/>
-                <input type="radio" name="Crop" value="3" /> Forages <br/>
-                <input type="radio" name="Crop" value="4" /> Grapes(Wine) <br/>
-                <input type="radio" name="Crop" value="5" /> Legumes <br/>
-                <input type="radio" name="Crop" value="6" /> Roots and Tubers <br/>
-                <input type="radio" name="Crop" value="7" /> Vegetables <br/>
+                <input type="checkbox" name="Crop" value="1" /> Grass <br/>
+                <input type="checkbox" name="Crop" value="2" /> Cereals <br/>
+                <input type="checkbox" name="Crop" value="3" /> Forages <br/>
+                <input type="checkbox" name="Crop" value="4" /> Grapes(Wine) <br/>
+                <input type="checkbox" name="Crop" value="5" /> Legumes <br/>
+                <input type="checkbox" name="Crop" value="6" /> Roots and Tubers <br/>
+                <input type="checkbox" name="Crop" value="7" /> Vegetables <br/>
             </form>
 
         </div>
@@ -182,7 +182,7 @@ export const SelectCropType = ()=>(
 
 export const SelectLastIrrigation = ()=>(
     <div>
-        <div className="Select-Header">
+        <div>
             <Link to="/croptype"><div className="prev">
                 <MdNavigateBefore />
             </div></Link>
