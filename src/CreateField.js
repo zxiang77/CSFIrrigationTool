@@ -10,125 +10,12 @@ import { Link } from 'react-router-dom'
 // import back from '../img/back.png';
 import "./App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
-import jsonp from 'jsonp'
+import { connect } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
+import { updateSoilType, updateCropType, updateIrrigation } from './actions'
 
 // import { getDataForLocation, getClimDataForLocation } from '../irrigationtool/js/toolinit'
-
-// TODO: update by onChange event function
-
-// TODO: adding redux, Call API after @longitude and @latitude are set
 // https://facebook.github.io/react/docs/forms.html
-
-
-
-export default class SelectLocation extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            coords : null,
-            timestamp : null,
-            longitude : null,
-            latitude : null,
-            countryName : null,
-            regionName: null,
-            city : null,
-            zipCode : null,
-            HDF5 : null,
-            clim : null
-        }
-    }
-
-    async getData() {
-        await navigator.geolocation.getCurrentPosition(
-            (position) => {
-                console.log(position)
-                this.setState({coords : position,
-                    longitude : position.coords.longitude,
-                    latitude : position.coords.latitude});
-
-                // ERROR : API is not receiving param passed and returns a default response
-                jsonp('http://tools.climatesmartfarming.org/irrigationtool/datahdf5/', {
-                    lat : this.state.latitude.toString(),
-                    lon : this.state.longitude.toString(),
-                    year : '2017',
-                    format : 'json'
-                }, (err, data)=> {
-                    if (err) console.error(err);
-                    else {
-                        console.log(data);
-                        this.setState({HDF : data});
-                    }
-                })
-
-                jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
-                        data : {
-                            lat: this.state.latitude.toString(),
-                            lon: this.state.longitude.toString(),
-                            format: 'json'
-                        }
-                }, (err, data)=> {
-                    if (err) console.error(err);
-                    else {
-                        console.log(data);
-                        this.setState({clim : data});
-                    }
-                })
-
-
-            },
-            (error) => console.log(error.message),
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-        );
-        this.watchID = navigator.geolocation.watchPosition((position) => {
-            // var lastPosition = JSON.stringify(position);
-            this.setState(position);
-        });
-
-        // get location related state param
-        var url = 'https://freegeoip.net/json/';
-        fetch(url)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                //console.log(responseJson);
-                this.setState({
-                    countryName: responseJson.country_name,
-                    regionName: responseJson.region_name,
-                    city : responseJson.city,
-                    zipCode : responseJson.zip_code
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }
-
-    componentDidMount = () => {
-        this.getData();
-    }
-    componentWillUnmount = () => {
-        navigator.geolocation.clearWatch(this.watchID);
-    }
-
-    render () {
-        return (
-            <div id="div1">
-                <div className="Select-Header">
-                    <h2 className="Select-Header">Create a field - step 1</h2>
-                </div>
-                <div className="Select-Input">
-                    <h3 id="id3">Where is your field?</h3>
-                    <input type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
-                </div>
-                <Link to="/capacity"> <ComfirmButton content="Continue"/> </Link>
-            </div>
-        )
-    }
-}
-
-// export const SelectLocation = ()=>(
-//
-// )
 
 export const SelectCapacity = ()=>(
     <div id="div2">
@@ -149,7 +36,7 @@ export const SelectCapacity = ()=>(
             </form>
 
         </div>
-        <Link to="/croptype"> <ComfirmButton content="Continue"/> </Link>
+        <Link to="/croptype"> <ComfirmButton onClick={updateSoilType("placeholder")} content="Continue"/> </Link>
 
 
     </div>
@@ -175,7 +62,7 @@ export const SelectCropType = ()=>(
             </form>
 
         </div>
-        <Link to="/lastirrigation"> <ComfirmButton content="Continue"/> </Link>
+        <Link to="/lastirrigation"> <ComfirmButton onClick={updateCropType("placeholder")} content="Continue"/> </Link>
 
     </div>
 )
@@ -197,7 +84,7 @@ export const SelectLastIrrigation = ()=>(
             </form>
 
         </div>
-        <Link to="/main"> <ComfirmButton content="Create"/> </Link>
+        <Link to="/main"> <ComfirmButton onClick={updateIrrigation("placeholder")} content="Create"/> </Link>
 
     </div>
 )

@@ -10,7 +10,8 @@ import MdSort from 'react-icons/lib/md/sort';
 import MdSetting from 'react-icons/lib/md/settings';
 import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
 import MdWbSunny from 'react-icons/lib/md/wb-sunny';
-
+import RecentStatus from './RecentStatus';
+import { updateLocation, updateSoilType, updateCropType, updateIrrigation } from './actions'
 
 // import { VictoryLine, VictoryBrushContainer } from 'victory';
 // import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries, VerticalGridLines } from 'react-vis';
@@ -58,11 +59,11 @@ const DisplayWeather = (props)=>(
     </div>
 );
 
-const SinceLastIrrigate = (props)=>(
-    <div id="recentstatus">
+// const SinceLastIrrigate = (props)=>(
+//     <div id="recentstatus">
 
-    </div>
-);
+//     </div>
+// );
 
 export class MainPage extends Component {
     render() {
@@ -85,7 +86,6 @@ export class MainPage extends Component {
                         <div id = "line2"> </div> 
     
                         <ProfilePlot />
-                        <DisplayProfile />
                     </li>
                     <li>
                         <p className = "displace">Weather Forcast</p>
@@ -93,7 +93,6 @@ export class MainPage extends Component {
                     </li>
                     <li>
                         <p className = "displace"> Since last irrigation</p>
-                        <SinceLastIrrigate />
                     </li>
                 </ul>
                 <ComfirmButton content="I watered!"/>

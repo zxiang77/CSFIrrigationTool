@@ -3,9 +3,9 @@ import './App.css';
 // import { UpdateInfo } from "./UpdateIrrigationInfo"
 import { StartPage } from './StartPage';
 import { SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField';
-import SelectLocation from './CreateField';
+import SelectLocation from './components/SelectLocation';
 import MainPage from './Main';
-
+import { createStore } from 'redux'
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,16 +18,6 @@ import {
 class App extends Component {
 
     render() {
-        // const MainPg = ()=>(
-        //     <div>
-        //         <MainPage />
-        //     </div>
-        //
-        // );
-
-        // console.log(StartPage);
-        // console.log(MainPg)
-        // const MainPg =  MainPage;
         return (
         <Router>
             <div>

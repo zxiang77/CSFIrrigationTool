@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/*<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">*/
 .App {
     text-align: center;
     
@@ -61,6 +63,10 @@ th {
     padding : 15px;
 }
 
+ul {
+    margin: auto;
+}
+
 th td {
     padding : 5px;
 }
@@ -107,8 +113,8 @@ th td {
     bottom: 0;
     color: white;
     width: 100%;
-    margin-top: 500px;
     margin: auto;
+    /*margin-top: 300px;*/
     border-radius: 0;
     box-shadow: none;
     border: none;
@@ -244,7 +250,7 @@ th td {
     margin-left: 0;
     margin-right: 15%;
     width: 90%;
-    height: 70px;
+    height: 100px;
     border:1px solid #E7E7E7;
  
 }
@@ -257,7 +263,18 @@ li p {
     color: #4D4D4D;
 }
 
-
+svg{
+        border: 1px solid #ddd;
+        border-radius:6px;
+        background-color: #fff;
+    }
+    .small{
+        fill:#fff;
+    }
+    .number, .label{
+        text-anchor: middle;
+        font-family: "Open Sans";
+    }
 
 
 
