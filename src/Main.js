@@ -91,9 +91,7 @@ export class MainPage extends Component {
                         <p className = "displace">Weather Forcast</p>
                         <DisplayWeather />
                     </li>
-                    <li>
-                        <p className = "displace"> Since last irrigation</p>
-                    </li>
+
                 </ul>
                 <ComfirmButton content="I watered!"/>
             </div>
