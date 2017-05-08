@@ -267,15 +267,49 @@ svg{
         border: 1px solid #ddd;
         border-radius:6px;
         background-color: #fff;
-    }
-    .small{
-        fill:#fff;
-    }
-    .number, .label{
-        text-anchor: middle;
-        font-family: "Open Sans";
-    }
+}
+.small{
+    fill:#fff;
+}
+.number, .label{
+    text-anchor: middle;
+    font-family: "Open Sans";
+}
 
 
-
+#label1{
+    padding:5px;
+    border:0.05px solid #d9d9d9;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    cursor:pointer;
+    z-index:90;
+    /*position:absolute;*/
+    /*top:2%;*/
+    /*left:7%;*/
+    margin: auto;
+    background-color: white;
+}
+#label2{
+    padding:5px;
+    border:0.05px solid #d9d9d9;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    cursor:pointer;
+    z-index:90;
+    /*position:absolute;*/
+    /*top:2%;*/
+    /*left: 16.6%;*/
+    margin: auto;
+    background-color: white;
+}
+#dataset1 {
+    color: green;
+}
+/*label: active {*/
+    /*background-color: green;*/
+/*}*/
+/*label: focus {*/
+    /*background-color: white;*/
+/*}*/
 

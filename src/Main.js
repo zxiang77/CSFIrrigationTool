@@ -67,6 +67,9 @@ const DisplayWeather = (props)=>(
 
 export class MainPage extends Component {
     render() {
+        const height10 = {
+            height : "30px"
+        }
         return (
             <div>
                 <div>
@@ -87,13 +90,12 @@ export class MainPage extends Component {
     
                         <ProfilePlot />
                     </li>
+                    <div style={height10}></div>
                     <li>
                         <p className = "displace">Weather Forcast</p>
                         <DisplayWeather />
                     </li>
-                    <li>
-                        <p className = "displace"> Since last irrigation</p>
-                    </li>
+
                 </ul>
                 <ComfirmButton content="I watered!"/>
             </div>

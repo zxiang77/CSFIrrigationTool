@@ -35,7 +35,7 @@ const receiveIrrigation = irrigation => ({
 
 export const updateLocation = location => (dispatch, getState) => {
     console.log("sssssss");
-  	// const { curState } = getState();
+  	const { curState } = getState();
     dispatch(receiveLocation(location))
 }
 

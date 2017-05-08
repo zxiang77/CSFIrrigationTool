@@ -6,6 +6,7 @@ import { SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateFi
 import SelectLocation from './components/SelectLocation';
 import MainPage from './Main';
 import { createStore } from 'redux'
+import { updateLocation } from './actions'
 import {
     BrowserRouter as Router,
     Switch,
@@ -18,6 +19,10 @@ import {
 class App extends Component {
 
     render() {
+        const SelectLocationVar = ()=>(
+            <SelectLocation onClick={()=>updateLocation(this.state)} />
+        )
+
         return (
         <Router>
             <div>
@@ -25,7 +30,7 @@ class App extends Component {
                     {/*<MainPage/>*/}
                 </div>
                 <Route exact path="/" component={StartPage} />
-                <Route path="/location" component={SelectLocation} />
+                <Route path="/location" component={SelectLocationVar} />
                 <Route path="/croptype" component={SelectCropType} />
                 <Route path="/capacity" component={SelectCapacity} />
                 <Route path="/lastirrigation" component={SelectLastIrrigation} />

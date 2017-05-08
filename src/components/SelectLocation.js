@@ -10,12 +10,16 @@ import { updateLocation } from '../actions'
 import { getAttrObj } from '../reducers'
 import { connect } from 'react-redux'
 import jsonp from 'jsonp'
+import { Button } from 'react-bootstrap'
 
 import { Link } from 'react-router-dom'
 
 class SelectLocation extends Component {
     constructor(props) {
         super(props);
+
+        this.onClick = props.onClick;
+
         this.state={
             coords : null,
             timestamp : null,
@@ -93,7 +97,7 @@ class SelectLocation extends Component {
     }
 
     componentDidMount = () => {
-        this.getData();
+        var a = this.getData();
     }
     // componentWillUnmount = () => {
     //     navigator.geolocation.clearWatch(this.watchID);
@@ -109,20 +113,17 @@ class SelectLocation extends Component {
                     <h3 id="id3">Where is your field?</h3>
                     <input type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
-                <Link to="/capacity"> <ComfirmButton onClick={updateLocation(this.state)} content="Continue"/> </Link>
+                <Link to="/capacity"> <Button bsSize="large" onClick={ this.onClick } id="primaryButton" block active>Continue</Button> </Link>
             </div>
         )
     }
 }
 
 
-const mapStateToProps = (state) => ({
-    location : getAttrObj(state, "location")
-})
+const mapStateToProps = (state) => ({location:state.location})
+const mapDispatchToProps = (dispatch) => ({onClick:updateLocation})
 
 export default connect(
     mapStateToProps,
-    { updateLocation }
+    mapDispatchToProps
 )(SelectLocation)
-
-
