@@ -68,7 +68,7 @@ const DisplayWeather = (props)=>(
 export class MainPage extends Component {
     render() {
         const height10 = {
-            height : "30px"
+            height : "20px"
         }
         return (
             <div>
