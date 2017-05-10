@@ -52,12 +52,12 @@ export const SelectCropType = ()=>(
         <div className="Select-Input">
             <h3 id="id6">What is your crop?</h3>
             <form id="form2">
-                <input type="checkbox" name="Crop" value="1" /> Grass <br/>
-                <input type="checkbox" name="Crop" value="2" /> Cereals <br/>
-                <input type="checkbox" name="Crop" value="3" /> Forages <br/>
-                <input type="checkbox" name="Crop" value="4" /> Grapes(Wine) <br/>
-                <input type="checkbox" name="Crop" value="5" /> Legumes <br/>
-                <input type="checkbox" name="Crop" value="6" /> Roots and Tubers <br/>
+                <input type="checkbox" name="Crop" value="1" /> Grass <br/><br/>
+                <input type="checkbox" name="Crop" value="2" /> Cereals <br/><br/>
+                <input type="checkbox" name="Crop" value="3" /> Forages <br/><br/>
+                <input type="checkbox" name="Crop" value="4" /> Grapes(Wine) <br/><br/>
+                <input type="checkbox" name="Crop" value="5" /> Legumes <br/><br/>
+                <input type="checkbox" name="Crop" value="6" /> Roots and Tubers <br/><br/>
                 <input type="checkbox" name="Crop" value="7" /> Vegetables <br/>
             </form>
 

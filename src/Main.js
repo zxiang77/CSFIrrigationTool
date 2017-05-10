@@ -24,7 +24,7 @@ const DisplayProfile = (props)=>(
 
 const DisplayWeather = (props)=>(
     <div id="weather">
-        <table className="">
+        <table className="table">
             <tbody>
                 <tr>
                     <td>Today</td>
@@ -71,7 +71,7 @@ export class MainPage extends Component {
             height : "20px"
         }
         return (
-            <div>
+            <div id = "mainPage">
                 <div>
                     {/* Put a Hamburger Icon here */}
                     <div className="Hamburger"> <MdSort /> </div>
