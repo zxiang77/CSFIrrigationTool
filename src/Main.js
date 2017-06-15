@@ -10,11 +10,9 @@ import MdSort from 'react-icons/lib/md/sort';
 import MdSetting from 'react-icons/lib/md/settings';
 import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
 import MdWbSunny from 'react-icons/lib/md/wb-sunny';
+import { connect } from 'react-redux'
 import RecentStatus from './RecentStatus';
-import { updateLocation, updateSoilType, updateCropType, updateIrrigation } from './actions'
-
-// import { VictoryLine, VictoryBrushContainer } from 'victory';
-// import { MarkSeries, LineSeries, HorizontalGridLines, XYPlot, XAxis, YAxis, LineMarkSeries, VerticalGridLines } from 'react-vis';
+// import { updateLocation, updateSoilType, updateCropType, updateIrrigation } from './actions'
 import ProfilePlot from './ProfilePlot'
 const DisplayProfile = (props)=>(
     <div id="profile">
@@ -66,6 +64,12 @@ const DisplayWeather = (props)=>(
 // );
 
 export class MainPage extends Component {
+    constructor(props){
+        super(props)
+        this.location = props.location
+        console.log(this.location)
+}
+
     render() {
         const height10 = {
             height : "20px"
@@ -75,7 +79,7 @@ export class MainPage extends Component {
                 <div>
                     {/* Put a Hamburger Icon here */}
                     <div className="Hamburger"> <MdSort /> </div>
-                    <div className="location">Ithaca, NY</div>
+                    <div className="location">{this.location.city}, {this.location.regionName}</div>
                     {/* Put a Setting Icon here */}
                     <div className="Setting"> <MdSetting /> </div>
                 </div>
@@ -92,7 +96,7 @@ export class MainPage extends Component {
                     </li>
                     <div style={height10}></div>
                     <li>
-                        <p className = "displace">Weather Forcast</p>
+                        <p className = "displace">Weather Forecast</p>
                         <DisplayWeather />
                     </li>
 
@@ -104,4 +108,8 @@ export class MainPage extends Component {
     }
 }
 
-export default MainPage;
+const mapStateToProps = state => (
+    {location : state.changeLocation}
+)
+
+export default connect(mapStateToProps)(MainPage);

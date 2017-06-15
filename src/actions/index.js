@@ -34,22 +34,17 @@ const receiveIrrigation = irrigation => ({
 // }
 
 export const updateLocation = location => (dispatch, getState) => {
-    console.log("sssssss");
-  	const { curState } = getState();
     dispatch(receiveLocation(location))
 }
 
 export const updateSoilType = soilType => (dispatch, getState) => {
-	  // const { curState } = getState();
     dispatch(receiveSoilType(soilType))
 }
 
 export const updateCropType = cropType => (dispatch, getState) => {
-	  // const { curState } = getState();
     dispatch(receiveCropType(cropType))
 }
 
 export const updateIrrigation = irrigation => (dispatch, getState) => {
-	  // const { curState } = getState();
     dispatch(receiveIrrigation(irrigation))
 }

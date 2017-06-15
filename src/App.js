@@ -5,7 +5,7 @@ import { StartPage } from './StartPage';
 import { SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField';
 import SelectLocation from './components/SelectLocation';
 import MainPage from './Main';
-import { createStore } from 'redux'
+// import { createStore } from 'redux'
 import { updateLocation } from './actions'
 import {
     BrowserRouter as Router,
@@ -17,10 +17,18 @@ import {
 // TODO: next-> adding mobx stored global variables -- April 12th
 
 class App extends Component {
+    constructor(props){
+        super(props)
+        this.location=props.location
+    }
 
     render() {
         const SelectLocationVar = ()=>(
             <SelectLocation onClick={()=>updateLocation(this.state)} />
+        )
+
+        const mainPageVar = (location)=>(
+            <MainPage location={this.location} />
         )
 
         return (
@@ -34,7 +42,7 @@ class App extends Component {
                 <Route path="/croptype" component={SelectCropType} />
                 <Route path="/capacity" component={SelectCapacity} />
                 <Route path="/lastirrigation" component={SelectLastIrrigation} />
-                <Route path="/main" component={MainPage} />
+                <Route path="/main" component={mainPageVar} />
             </div>
         </Router>
 

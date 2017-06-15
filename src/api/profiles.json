@@ -1,7 +1,7 @@
 {
   "profiles" : [
-    {"location" : null, // object
-    "lastIrrigation": null, // string
+    {"location" : null,
+    "lastIrrigation": null,
     "cropType" : null,
     "soilType" : null
     }

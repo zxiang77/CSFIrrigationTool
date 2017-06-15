@@ -2,26 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import reducer from './reducers'
+// import reducer from './reducers'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
+import sampleData from './api/profiles'
+// import { createLogger } from 'redux-logger'
+// import thunk from 'redux-thunk'
+import storeFactory from './reducers'
 
-const middleware = [ thunk ];
-if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
-}
+const initialState = (localStorage["redux-store"]) ?
+    JSON.parse(localStorage["redux-store"]) :
+    sampleData
+
+const saveState = () =>
+    localStorage["redux-store"] = JSON.stringify(store.getState())
+//
+// const middleware = [ thunk ];
+// if (process.env.NODE_ENV !== 'production') {
+//   middleware.push(createLogger());
+// }
+
+
 
 window.React = React
 
-const store = createStore(
-  reducer,
-  applyMiddleware(...middleware)
-)
+const store = storeFactory(initialState)
+store.subscribe(saveState)
 
-store.dispatch({type:"EDIT_LOCATION", newLocation:{"hello" : 123}})
-
+window.store = store
 ReactDOM.render(
   <Provider store={store}>
     <App />

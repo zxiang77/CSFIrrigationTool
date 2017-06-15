@@ -4,12 +4,12 @@
 // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
 
 import React from 'react';
-import { LineMarkSeries } from 'react-vis';
 import * as d3 from 'd3';
 
 export default class ProfilePlot extends React.Component {
     constructor(props) {
         super(props);
+        this.location = props.location
     }
     componentDidMount() {
         this.renderSVG();

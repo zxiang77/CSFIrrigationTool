@@ -7,7 +7,7 @@ import { ComfirmButton } from '../CSFComponents';
 import "../App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
 import { updateLocation } from '../actions'
-import { getAttrObj } from '../reducers'
+// import { getAttrObj } from '../reducers/reducers'
 import { connect } from 'react-redux'
 import jsonp from 'jsonp'
 import { Button } from 'react-bootstrap'
@@ -103,6 +103,10 @@ class SelectLocation extends Component {
     //     navigator.geolocation.clearWatch(this.watchID);
     // }
 
+    updateInfo = () => {
+        this.onClick(this.state)
+    }
+
     render () {
         return (
             <div id="div1">
@@ -113,15 +117,28 @@ class SelectLocation extends Component {
                     <h3 id="id3">Where is your field?</h3>
                     <input type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
-                <Link to="/capacity"> <Button bsSize="large" onClick={ this.onClick } id="primaryButton" block active>Continue</Button> </Link>
+                <Link to="/capacity"> <Button bsSize="large" onClick={ this.updateInfo } id="primaryButton" block active>Continue</Button> </Link>
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        location: state.location
+    }
+}
 
-const mapStateToProps = (state) => ({location:state.location})
-const mapDispatchToProps = (dispatch) => ({onClick:updateLocation})
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClick(location){
+            dispatch(
+                updateLocation(location)
+            )
+        }
+    }
+}
+    // ({onClick:updateLocation})
 
 export default connect(
     mapStateToProps,

@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom'
 // import back from '../img/back.png';
 import "./App.css";
 import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
-import { connect } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+// import { connect } from 'react-redux'
+// import { createStore, applyMiddleware } from 'redux'
 import { updateSoilType, updateCropType, updateIrrigation } from './actions'
 
 // import { getDataForLocation, getClimDataForLocation } from '../irrigationtool/js/toolinit'
