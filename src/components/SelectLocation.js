@@ -2,10 +2,10 @@
  * Created by zilixiang on 5/7/17.
  */
 import React, { Component } from 'react';
-import { ComfirmButton } from '../CSFComponents';
+// import { ComfirmButton } from '../CSFComponents';
 
 import "../App.css";
-import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
+// import MdNavigateBefore from 'react-icons/lib/md/navigate-before'
 import { updateLocation } from '../actions'
 // import { getAttrObj } from '../reducers/reducers'
 import { connect } from 'react-redux'
@@ -17,10 +17,11 @@ import { Link } from 'react-router-dom'
 class SelectLocation extends Component {
     constructor(props) {
         super(props);
-
+        
         this.onClick = props.onClick;
+        console.log(props.onClick)
 
-        this.state={
+        this.state = {
             coords : null,
             timestamp : null,
             longitude : null,
@@ -32,19 +33,24 @@ class SelectLocation extends Component {
             HDF5 : null,
             clim : null
         }
-    }
 
+        this.pms = null;
+
+    }
+    // need to block next when state is not set
     async getData() {
-        await navigator.geolocation.getCurrentPosition(
+        navigator.geolocation.getCurrentPosition(
+            // success
             (position) => {
                 this.setState({coords : position,
                     longitude : position.coords.longitude,
                     latitude : position.coords.latitude});
 
                 // ERROR : API is not receiving param passed and returns a default response
+                // first jsonp call
                 jsonp('http://tools.climatesmartfarming.org/irrigationtool/datahdf5/', {
-                    lat : this.state.latitude.toString(),
-                    lon : this.state.longitude.toString(),
+                    lat : this.state.latitude ? this.state.latitude.toString()  : null,
+                    lon : this.state.longitude? this.state.longitude.toString() : null,
                     year : '2017',
                     format : 'json'
                 }, (err, data)=> {
@@ -54,10 +60,11 @@ class SelectLocation extends Component {
                     }
                 })
 
+                // another jsonp call
                 jsonp('http://tools.climatesmartfarming.org/irrigationtool/clim/', {
                     data : {
-                        lat: this.state.latitude.toString(),
-                        lon: this.state.longitude.toString(),
+                        lat : this.state.latitude ? this.state.latitude.toString()  : null,
+                        lon : this.state.longitude? this.state.longitude.toString() : null,
                         format: 'json'
                     }
                 }, (err, data)=> {
@@ -67,14 +74,15 @@ class SelectLocation extends Component {
                         this.setState({clim : data});
                     }
                 })
-
+                // end success
 
             },
+            // error
             (error) => console.log(error.message),
+            // optional
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
         );
         this.watchID = navigator.geolocation.watchPosition((position) => {
-            // var lastPosition = JSON.stringify(position);
             this.setState(position);
         });
 
@@ -96,15 +104,12 @@ class SelectLocation extends Component {
             });
     }
 
-    componentDidMount = () => {
-        var a = this.getData();
+    componentDidMount() {
+        this.getData();
     }
-    // componentWillUnmount = () => {
-    //     navigator.geolocation.clearWatch(this.watchID);
-    // }
-
-    updateInfo = () => {
-        this.onClick(this.state)
+    componentWillUnmount() {
+        console.log("this.pms = " + this.pms)
+        navigator.geolocation.clearWatch(this.watchID);
     }
 
     render () {
@@ -117,7 +122,7 @@ class SelectLocation extends Component {
                     <h3 id="id3">Where is your field?</h3>
                     <input type="text" name="LocationInput" placeholder={ "lon: " + this.state.longitude + ", lat: " + this.state.latitude } />
                 </div>
-                <Link to="/capacity"> <Button bsSize="large" onClick={ this.updateInfo } id="primaryButton" block active>Continue</Button> </Link>
+                <Link to="/capacity"> <Button bsSize="large" onClick={ () => { this.onClick(this.state)} } id="primaryButton" block active>Continue</Button> </Link>
             </div>
         )
     }

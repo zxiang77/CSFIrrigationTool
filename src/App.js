@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 // import { UpdateInfo } from "./UpdateIrrigationInfo"
-import { StartPage } from './StartPage';
-import { SelectCapacity, SelectCropType, SelectLastIrrigation } from './CreateField';
+import StartPage from './StartPage';
+import { SelectCropType, SelectLastIrrigation } from './CreateField';
 import SelectLocation from './components/SelectLocation';
+import SelectCapacity from './components/SelectCapacity';
 import MainPage from './Main';
 // import { createStore } from 'redux'
-import { updateLocation } from './actions'
+import { updateLocation, updateSoilType, updateCropType, updateIrrigation } from './actions'
 import {
     BrowserRouter as Router,
-    Switch,
+    // Switch,
     Route,
-    Link
+    // Link
 } from 'react-router-dom'
 
 // TODO: next-> adding mobx stored global variables -- April 12th
@@ -20,16 +21,20 @@ class App extends Component {
     constructor(props){
         super(props)
         this.location=props.location
+        console.log(this.location)
     }
 
     render() {
         const SelectLocationVar = ()=>(
-            <SelectLocation onClick={()=>updateLocation(this.state)} />
+            <SelectLocation onClick={ ()=>updateLocation(this.state) } />
         )
 
-        const mainPageVar = (location)=>(
-            <MainPage location={this.location} />
+        const SelectCapacityVar = ()=>(<SelectCapacity onClick={ ()=>updateSoilType(this.state) } />)
+
+        const mainPageVar = (location) => (
+            <MainPage location={ this.location } />
         )
+
 
         return (
         <Router>
@@ -40,7 +45,7 @@ class App extends Component {
                 <Route exact path="/" component={StartPage} />
                 <Route path="/location" component={SelectLocationVar} />
                 <Route path="/croptype" component={SelectCropType} />
-                <Route path="/capacity" component={SelectCapacity} />
+                <Route path="/capacity" component={SelectCapacityVar} />
                 <Route path="/lastirrigation" component={SelectLastIrrigation} />
                 <Route path="/main" component={mainPageVar} />
             </div>

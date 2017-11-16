@@ -3,10 +3,10 @@
  */
 // Copyright (c) 2016 - 2017 Uber Technologies, Inc.
 
-import React from 'react';
+import React, { Component } from 'react';
 import * as d3 from 'd3';
 
-export default class ProfilePlot extends React.Component {
+export default class ProfilePlot extends Component {
     constructor(props) {
         super(props);
         this.location = props.location
@@ -25,7 +25,7 @@ export default class ProfilePlot extends React.Component {
         var width = 335
         var dataset = [0.1, -0.2, -0.7];
         var yScale = d3.scaleLinear().domain([-1.5, 0.5]).range([height, 0]);
-        var xScale = [50, 150, 250];
+        // var xScale = [50, 150, 250];
 
 
         var svg = d3.select("#svg").attr("height", height).attr("width", width)
@@ -45,7 +45,7 @@ export default class ProfilePlot extends React.Component {
             }
 
 
-            var ticks = [0, -0.5, -0.8]
+            // var ticks = [0, -0.5, -0.8]
 
             var defs = svg.append("defs");
 
@@ -176,7 +176,7 @@ export default class ProfilePlot extends React.Component {
                     d3.select(".number").remove();
                     console.log(this);
                     for(var j=0; j<3; j++){
-                        if(j==i){
+                        if(j===i){
                             d3.select("#circle"+j).transition().attr("stroke-width", 25);
                             svg.append("text").text(d)
                                 .attr("class", "number")
@@ -193,13 +193,13 @@ export default class ProfilePlot extends React.Component {
         //line graph
         function lineGraph() {
 
-            var lineData = [ { "x": 10, "y": 70},  { "x": 80, "y": 80},
-                { "x": 160, "y": 40}, { "x": 240, "y": 110},
-                { "x": 320, "y": 40},  ];
-            var lineFunction = d3.line()
-                .x(function(d) { return d.x; })
-                .y(function(d) { return d.y; })
-                .curve(d3.curveCardinal)
+            // var lineData = [ { "x": 10, "y": 70},  { "x": 80, "y": 80},
+            //     { "x": 160, "y": 40}, { "x": 240, "y": 110},
+            //     { "x": 320, "y": 40},  ];
+            // var lineFunction = d3.line()
+            //     .x(function(d) { return d.x; })
+            //     .y(function(d) { return d.y; })
+            //     .curve(d3.curveCardinal)
 
             var defs = svg.append("defs");
             var gradient = defs.append("linearGradient")
@@ -288,11 +288,11 @@ export default class ProfilePlot extends React.Component {
                 .attr("y2", yScale(-0.8))
                 .attr("stroke", "#f6f6f6")
                 .attr("stroke-width", 1)
-            var line = svg.append("path")
-                .attr("d", lineFunction(lineData))
-                .attr("stroke-width", 3)
-                .attr("stroke", "url(#svgGradient)")
-                .attr("fill", "none");
+            // var line = svg.append("path")
+            //     .attr("d", lineFunction(lineData))
+            //     .attr("stroke-width", 3)
+            //     .attr("stroke", "url(#svgGradient)")
+            //     .attr("fill", "none");
             svg.append("circle")
                 .attr("cx", 10)
                 .attr("cy", 70)
@@ -316,12 +316,12 @@ export default class ProfilePlot extends React.Component {
 
         function selectDataset() {
             var value = this.value;
-            if (value == "Prediction") {
+            if (value === "Prediction") {
                 svg.selectAll("text").remove();
                 svg.selectAll("circle").remove();
                 svg.selectAll("path").remove();
                 dataVisualization();
-            } else if (value == "History") {
+            } else if (value === "History") {
                 svg.selectAll("text").remove();
                 svg.selectAll("circle").remove();
                 svg.selectAll("line").remove();

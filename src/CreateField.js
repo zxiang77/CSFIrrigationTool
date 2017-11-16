@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { ComfirmButton } from './CSFComponents';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/flatpickr.min.css'
-// import { observable } from 'mobx'
 import { Link } from 'react-router-dom'
 // import back from '../img/back.png';
 import "./App.css";
@@ -17,7 +16,7 @@ import { updateSoilType, updateCropType, updateIrrigation } from './actions'
 // import { getDataForLocation, getClimDataForLocation } from '../irrigationtool/js/toolinit'
 // https://facebook.github.io/react/docs/forms.html
 
-export const SelectCapacity = ()=>(
+export const SelectCapacity = () => (
     <div id="div2">
         <div >
             <Link to="/location"><div className="prev">
@@ -37,8 +36,6 @@ export const SelectCapacity = ()=>(
 
         </div>
         <Link to="/croptype"> <ComfirmButton onClick={updateSoilType("placeholder")} content="Continue"/> </Link>
-
-
     </div>
 )
 

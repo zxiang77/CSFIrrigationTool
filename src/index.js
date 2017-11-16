@@ -2,12 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-// import reducer from './reducers'
-import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import sampleData from './api/profiles'
-// import { createLogger } from 'redux-logger'
-// import thunk from 'redux-thunk'
 import storeFactory from './reducers'
 
 const initialState = (localStorage["redux-store"]) ?

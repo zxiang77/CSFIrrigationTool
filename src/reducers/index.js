@@ -1,7 +1,7 @@
 /**
  * Created by zilixiang on 5/1/17.
  */
-import * as types from '../constants/ActionTypes';
+// import * as types from '../constants/ActionTypes';
 import appReducer from './reducers'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'

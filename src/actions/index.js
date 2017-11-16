@@ -26,12 +26,6 @@ const receiveIrrigation = irrigation => ({
   type: types.EDIT_LAST_IRRIGATION,
   newIrrigation: irrigation
 })
-// store.dispatch(getAllProducts())
-// export const getAllProducts = () => dispatch => {
-//     shop.getProducts(products => {
-//         dispatch(receiveProducts(products))
-//     })
-// }
 
 export const updateLocation = location => (dispatch, getState) => {
     dispatch(receiveLocation(location))

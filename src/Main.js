@@ -5,20 +5,15 @@
 import React, { Component } from "react";
 import { ComfirmButton } from './CSFComponents';
 import "./App.css";
-import MdNavigateBefore from 'react-icons/lib/md/navigate-before';
+// import MdNavigateBefore from 'react-icons/lib/md/navigate-before';
 import MdSort from 'react-icons/lib/md/sort';
 import MdSetting from 'react-icons/lib/md/settings';
 import MdCloudQueue from 'react-icons/lib/md/cloud-queue';
 import MdWbSunny from 'react-icons/lib/md/wb-sunny';
 import { connect } from 'react-redux'
-import RecentStatus from './RecentStatus';
+// import RecentStatus from './RecentStatus';
 // import { updateLocation, updateSoilType, updateCropType, updateIrrigation } from './actions'
 import ProfilePlot from './ProfilePlot'
-const DisplayProfile = (props)=>(
-    <div id="profile">
-        {/*<ProfilePlot />*/}
-    </div>
-);
 
 const DisplayWeather = (props)=>(
     <div id="weather">
