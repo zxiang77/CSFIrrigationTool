@@ -31,10 +31,10 @@ class SelectCapacity extends Component{
 
         const vals = [ {value: "Clay", text : "High (Clay)"}, {value: "Loam", text : "Medium (Loam)"}, {value: "Sand", text : "Low (Sand)"} ]
 
-        const Input = (props) => (<div> <input type="radio" name="Location" 
+        const Input = (props) => <div> <input type="radio" name="Location" 
                                                onChange= { onChangeHandler } 
                                                value={ props.value } 
-                                               checked = { this.state.sType === props.value } /> { props.text } </div> )
+                                               checked = { this.state.sType === props.value } /> { props.text } </div> 
 
         const inputs = vals.map( (val, index) => (<div key={index.toString()}> <Input value={ val.value } text={ val.text } /> <br/> </div>) )
 //
